@@ -69,4 +69,4 @@ to this:
 '''
 (edited for length)
 
-This should work on its own, by calling 
+This should work on its own, by calling getShippingForecast() although for me it is part of a larger project.
