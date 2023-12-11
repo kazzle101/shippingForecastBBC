@@ -1,10 +1,10 @@
 <?php
-include_once("app/config.class.php");
-include_once("app/utilities.class.php");
-include_once("app/makerequest.class.php");
-include_once("app/database.class.php");
-include_once("app/navigation.class.php");
-include_once("app/jsoncache.class.php");
+// include_once("app/config.class.php");
+// include_once("app/utilities.class.php");
+// include_once("app/makerequest.class.php");
+// include_once("app/database.class.php");
+// include_once("app/navigation.class.php");
+// include_once("app/jsoncache.class.php");
 
 class ShippingForecast {
 
@@ -169,7 +169,6 @@ class ShippingForecast {
                 $seaAreas[] = $area;
                 $id +=1;
             }
-
         }
 
         $data->from = $dates->from->format('Y-m-d\TH:i:s.00\Z');
