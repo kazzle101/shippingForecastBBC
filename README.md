@@ -4,7 +4,7 @@ A PHP class to decode the BBC's Shipping Forecast Web Page to a Object for JSON
 
 I quicky knocked this up so I could diplay the Shipping Forecast on a LED matrix pannel, because reasons.
 
-It Converts this: [https://www.bbc.co.uk/weather/coast-and-sea/shipping-forecast](https://www.bbc.co.uk/weather/coast-and-sea/shipping-forecast}
+It Converts this: [https://www.bbc.co.uk/weather/coast-and-sea/shipping-forecast]
 
 to this:
 ```
