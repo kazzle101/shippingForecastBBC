@@ -1,10 +1,4 @@
 <?php
-// include_once("app/config.class.php");
-// include_once("app/utilities.class.php");
-// include_once("app/makerequest.class.php");
-// include_once("app/database.class.php");
-// include_once("app/navigation.class.php");
-// include_once("app/jsoncache.class.php");
 
 class ShippingForecast {
 
@@ -57,7 +51,7 @@ class ShippingForecast {
         $d = strip_tags($d);
         $d = str_replace("From: ","", $d);
         $d = str_replace("To: ","", $d);
-        $d = str_replace("at ","", $d);
+        $d = str_replace(" at ","", $d);
         return DateTime::createFromFormat("D jS M H:i e", trim($d));  // Sun 10th Dec at 12:00 UTC
     }
 
@@ -172,7 +166,9 @@ class ShippingForecast {
         }
 
         $data->from = $dates->from->format('Y-m-d\TH:i:s.00\Z');
+        $data->fromTimestamp = $dates->from->getTimestamp();
         $data->to = $dates->to->format('Y-m-d\TH:i:s.00\Z');
+        $data->toTimestamp = $dates->to->getTimestamp();
         $data->warnings = $summaryWarnings;
         $data->summary = $summary;
         $data->seaAreas = $seaAreas;
@@ -181,13 +177,6 @@ class ShippingForecast {
     }
 
     public function getShippingForecast() {
-        // $utils = new Utilities();
-        // $jsonCache = new JsonCache();
-
-        // $cacheData = $jsonCache->checkCache("shippingforecast");
-        // if ($cacheData) {
-        //     return $cacheData;
-        // }
 
         $htmlDom = $this->getBBCpage();
         if (is_null($htmlDom)) {
@@ -198,10 +187,6 @@ class ShippingForecast {
         if (isset($data->status) && $data->status == "error") {
             return $data;
         }
-
-        // $currentDate = new DateTime('now', new DateTimeZone('UTC')); 
-        // $nextUpdate = $currentDate->modify('+4 hours');
-        // $jsonCache->updateCache("shippingforecast", null, $data, $nextUpdate);
 
         return $data;
     }
